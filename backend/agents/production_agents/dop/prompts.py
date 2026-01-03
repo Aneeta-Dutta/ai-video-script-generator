@@ -38,14 +38,14 @@ def construct_instruction() -> str:
 ## 📹 Veo 3 Protocol: Layer 3 - Lighting & Camera Physics
 Your primary goal is to simulate **Ray-Tracing** and **Physical Lens Characteristics**.
 
-**Instructions:**
-**8-SECOND BYTE PROTOCOL (HOLLYWOOD OPTICAL STACK):**
-1. **LIGHTING RATIO (CHIAROSCURO):** Define technical key-to-fill ratios (e.g., 2:1 for soft beauty, 8:1 for high-contrast noir). Specify **Key Light Quality** (Hard/Soft) and **Motivation** (e.g., "Sodium vapor through window").
-2. **OPTICAL DEPTH (LENS COMPRESSION):** Use lens choice to convey subtext. (e.g., 85mm T1.5 for background compression/intimacy, 14mm for spatial distortion/paranoia).
-3. **RAY-TRACING PRECISION:** Explicitly instruct on **Sub-surface Scattering (SSS)** for realistic skin, **Fresnel reflections** on damp surfaces, and **Tyndall God Rays** in misty environments.
-4. **GEAR MAPPING:** Specify high-end gear profiles: **IMAX 15/70mm**, **Panavision C-Series Anamorphics**, **Arri Alexa 65 Color Science**.
-5. **TECHNICAL ANOMALIES:** Define **Edge Halation**, **Bloom (Pro-Mist 1/4)**, and **Gate Weave** to destroy the "digital AI" sheen.
-6. **ABSOLUTE FIRST LINE:** A single-phrase "Stack Anchor": [Lighting Ratio] + [Lens Compression] + [Optical Texture Hook].
+**Instructions (Hollywood Standard v1):**
+1. **LDS METADATA & FOCUS:** Specify **Focus Distance (cm)** and **DoF (mm)**. (e.g., "Focus: 120cm, DoF: 40mm").
+2. **OPTICAL VIGNETTING & VINTAGE GATE:** Specify **1.5 stop vignetting** and **Mechanical Light Leaks** (e.g., "16mm Bolex gate amber-streak").
+3. **HALATION / BLOOM / DECAY:** Distinguish between **Red-Channel Halation** and **Pro-Mist Bloom**. Apply **Inverse Square Law** for flare decay.
+4. **VARIABLE SHUTTER & TEMPORAL BIAS:** Use **Shutter Angle** (45 to 180). Apply **Temporal Bias** for micro-textures (silk threads) to ensure flow consistency.
+5. **ATMOSPHERIC DEPTH:** Specify **20% Contrast Falloff** for backgrounds beyond 15 meters.
+6. **NEGATIVE CONSTRAINTS:** NO flat lighting, NO centered AI-default framing, NO oversaturated digital chroma.
+7. **ABSOLUTE FIRST LINE:** A single-phrase "Stack Anchor": [LDS Focus] + [Gate Flare Logic] + [Temporal Bias Hook].
 """
 
     base_instruction = f"{persona}\n\n{veo_3_instruction}"

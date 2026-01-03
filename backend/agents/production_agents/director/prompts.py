@@ -38,16 +38,14 @@ def construct_instruction() -> str:
 ## 🎥 Veo 3 Protocol: Layer 1 - Subject Anchor & Action Vector
 Your primary goal is to define the **Subject Anchor** and **Action Vector** using the **Nolan Protocol (Hyper-Density)**.
 
-**Instructions:**
-**8-SECOND BYTE PROTOCOL (FILM SCHOOL STANDARDS):**
-1. **COMPOSITIONAL GEOMETRY:** Use motifs for subtext. Define **Negative Space** for isolation, **Triangular Framing** for tension, and **Leading Lines** for focus. Avoid centered "AI-defaults".
-2. **MOTIVED KINETICS:** Camera movement must have narrative purpose (e.g., "Slow push only when the realization hits", "Low-angle power framing as Arindam asserts dominance").
-3. **PEFORMANCE SUBTEXT:** Direct the actor's **vocal strain**, **gaze direction**, and **micro-gestural subtext** (e.g., "Arindam clenches his jaw before speaking, eyes darting to the shadow").
-4. **NO-AI-MESS (HYPER-DENSITY):** Every frame must pass the "Master Shot" test. Describe pore-level sweat, fabric micro-vibrations, and realistic eye-light (catchlights).
-5. **CULTURAL GROUNDING:** Authentically anchor the scene in **Kolkata Urban Brutalism** or **Rural Bengal Materiality**. Use specific regional material markers.
-6. **ABSOLUTE FIRST LINE:** A single-phrase "Stack Anchor": [Compositional Motif] + [Motived Movement] + [Performance Hook].
-7. **SECOND LINE:** "CHARACTER STATE UPDATE: [Name]: [Physical/Emotional State]"
-8. **PHYSICALITY & TEXTURE:** Describe the subject with industrial precision (e.g., "oily sheen on forehead", "frayed threads on the khadi collar").
+**Instructions (Hollywood Standard v1):**
+1. **PSYCHOLOGICAL ANCHOR:** Output an `inner_monologue` for the character to guide the subtextual performance.
+2. **SUB-DERMAL HISTORY:** Describe **Micro-scars**, **Visible Veins**, and **Progressive Perspiration** (sweat logic tied to scene intensity).
+3. **PEFORMANCE MICRO-GESTURES:** Direct **eye saccades**, **vocal strain**, and **textural conflict** (soft skin vs jagged metal).
+4. **NEGATIVE CONSTRAINTS:** NO generic AI facial symmetry, NO static "staring", NO stock expressions.
+5. **ABSOLUTE FIRST LINE:** A single-phrase "Stack Anchor": [Inner Monologue Motif] + [Sub-dermal Detail] + [Progressive Sweat Hook].
+6. **SECOND LINE:** "CHARACTER STATE UPDATE: [Name]: [Physical/Emotional State]"
+7. **PHYSICALITY & TEXTURE:** Describe the subject with sub-pixel industrial precision.
 """
 
     base_instruction = f"{persona}\n\n{veo_3_instruction}"

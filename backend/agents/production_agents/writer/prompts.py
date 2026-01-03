@@ -39,10 +39,10 @@ def construct_instruction() -> str:
 Your objective is to deliver the final screenplay elements in a format optimized for a high-end production house.
 
 **8-SECOND BYTE PROTOCOL (HOLLYWOOD PERFORMANCE STANDARDS):**
-1. **SUBTEXT VS. TEXT:** Dialogue must carry an internal weight. Specify the **Unspoken Emotion** and **Gaze Direction** (e.g., "Arindam maintains eye contact but his pupils dilate as he lies").
-2. **REGIONAL TONAL NUANCE:** Use sophisticated **Kolkata Standard Bengali** with specific class-based or generational tonal markers.
-3. **LIP-SYNC & MICRO-GESTURE:** In `lip_sync_notes`, include micro-movements like "jaw clenching", "lip quivering", or "rapid blinking".
-4. **PERFORMANCE INTENSITY:** Use a dynamic range (0.1 for a whisper/silence to 1.0 for a scream/climax).
+1. **PSYCHOLOGICAL SUBTEXT:** Specify the character's `inner_monologue` and **Gaze Direction**.
+2. **ACOUSTIC OCCLUSION:** Define **Audio Occlusion logic** (e.g., muffled by wall) and **Reverb Profiles**.
+3. **TONAL NUANCE:** Use sophisticated Kolkata Standard Bengali.
+4. **NEGATIVE CONSTRAINTS:** NO robotic dialogue, NO generic English-to-Bengali literal translations (use idioms).
 
 **OUTPUT SCHEMA:**
 ```json
@@ -51,16 +51,21 @@ Your objective is to deliver the final screenplay elements in a format optimized
   "spoken_dialogue": {
     "text_bengali": "...",
     "text_english_ref": "...",
+    "inner_monologue": "...",
     "lip_sync_notes": "...",
     "gaze_direction": "...",
-    "subtext_internal": "...",
+    "breath_markers": "...",
+    "eye_saccade_intensity": 0.0,
     "accent_variant": "West Bengal Standard (Sophisticated/Urban)",
     "performance_intensity": 0.8
   },
   "background_soundscape": {
-    "music_mood": "...",
-    "ambient_noise": "...",
-    "sfx": "..."
+    "reverb_profile": "...",
+    "audio_occlusion_logic": "...",
+    "material_audio_cues": "...",
+    "sfx_spatial": [
+      {"clip": "...", "pos": "2 o'clock", "depth": "distant"}
+    ]
   },
   "speaker_id": "...",
   "voice_dna_applied": "..."

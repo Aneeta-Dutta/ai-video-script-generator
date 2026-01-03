@@ -38,14 +38,13 @@ def construct_instruction() -> str:
 ## 🏗️ Veo 3 Protocol: Layer 2 - The Environment Mesh
 Your primary goal is to define the **Environment Mesh** and **Materiality** using the **Bengal Palette**.
 
-**Instructions:**
-**8-SECOND BYTE PROTOCOL (PRODUCTION DESIGN EXCELLENCE):**
-1. **COMPOSITIONAL GEOMETRY:** Build environments that enforce the Director's motifs. Use **Architectural Leading Lines**, **Framing within a Frame**, and **Negative Space** to anchor the subject.
-2. **HISTORICAL & MATERIAL AUTHENTICITY:** Move beyond generic prompts. Define **Industrial Patina**, **Oxidation Ratios**, and **Period-Accurate Textures** (e.g., "19th century British-era brickwork with specific moss-displacement [Roughness: 0.9]").
-3. **PBR TOKEN STACK:** Use technical tokens: **Anisotropy** (for brushed metal), **Sub-surface Scattering** (for marble/leaves), and **Normal Mapping** (for high-density grime).
-4. **ATMOSPHERIC VOLUMETRICS:** Define the **Tyndall Effect**, **Bokeh Shape (Hexagonal)**, and **Airborne Micro-debris** (dust motes, silk fibers) to create depth.
-5. **CULTURAL ANCHORING:** Use high-fidelity regional markers (e.g., "Jamdani silk patterns with metallic thread-displacement", "Kolkata Brutalist concrete with monsoon-staining").
-6. **ABSOLUTE FIRST LINE:** A single-phrase "Stack Anchor": [Architectural Motif] + [Material DNA] + [Atmospheric Hook].
+**Instructions (Hollywood Standard v1):**
+1. **PBR MASTER STACK:** Use **Universal Wear-Level (0-1.0)**, **Roughness Variance Mapping**, and **Anisotropic Vector Mapping (90-deg for silk)**.
+2. **STRUCTURAL TENSION:** Build environments with **Structural Subtext** (e.g., "unbalanced weights", "braced beams").
+3. **MATERIAL PHYSICS:** Define **IOR-accurate moisture (1.33)** and **Sub-surface Scattering (SSS)** for Clay/Silk/Paper.
+4. **VOLUMETRIC FIDELITY:** Specify **Sub-pixel Airborne Micro-debris density**.
+5. **NEGATIVE CONSTRAINTS:** NO generic clean surfaces, NO repeated textures/patterns, NO floating objects.
+6. **ABSOLUTE FIRST LINE:** A single-phrase "Stack Anchor": [Structural Motif] + [Anisotropic Detail] + [Wear-Level Logic].
 """
 
     base_instruction = f"{persona}\n\n{veo_3_instruction}"

@@ -364,21 +364,26 @@ Deliver your output for this 8-SECOND BYTE. Be extremely brief."""
 
             writer_data = {
                 "scene_description_precise": results.get("director", "").split("\n", 1)[
-                    -1
+                -1
                 ],
                 "spoken_dialogue": {
                     "text_bengali": extract_crude("text_bengali", writer_text)
                     or extract_crude("dialogue_bengali", writer_text),
                     "text_english_ref": extract_crude("text_english_ref", writer_text)
                     or extract_crude("dialogue_english_ref", writer_text),
+                    "inner_monologue": extract_crude("inner_monologue", writer_text),
                     "lip_sync_notes": extract_crude("lip_sync_notes", writer_text),
                     "gaze_direction": extract_crude("gaze_direction", writer_text),
+                    "breath_markers": extract_crude("breath_markers", writer_text),
                     "subtext_internal": extract_crude("subtext_internal", writer_text),
+                    "eye_saccade_intensity": 0.0,
                     "accent_variant": "West Bengal Standard",
                     "performance_intensity": 0.8,
                 },
                 "background_soundscape": {
                     "music_mood": extract_crude("music_mood", writer_text),
+                    "reverb_profile": extract_crude("reverb_profile", writer_text),
+                    "audio_occlusion_logic": extract_crude("audio_occlusion_logic", writer_text),
                     "ambient_noise": extract_crude("ambient_noise", writer_text),
                     "sfx": extract_crude("sfx", writer_text),
                 },
@@ -403,6 +408,7 @@ Deliver your output for this 8-SECOND BYTE. Be extremely brief."""
             "scene_description_precise": desc_pruned,
             "duration_seconds": 8,
             "veo3_stack": veo3_stack,
+            "hollywood_standard_v1": True,
             "performance_detailing": {
                 "speaker_id": writer_data.get("speaker_id", "N/A"),
                 "voice_dna": writer_data.get("voice_dna_applied", "N/A"),

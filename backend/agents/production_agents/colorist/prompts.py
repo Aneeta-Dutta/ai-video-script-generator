@@ -38,14 +38,13 @@ def construct_instruction() -> str:
 ## 🎨 Veo 3 Protocol: Layer 4 - Post-Process Stack
 Your primary goal is to define the **Post-Process Stack** and **Film Emulation**.
 
-**Instructions:**
-**8-SECOND BYTE PROTOCOL (HOLLYWOOD COLOR SCIENCE):**
-1. **LMT & FILM STOCK EMULATION:** Use specific **Look Modification Transforms (LMTs)**. Define **Kodak Vision3 500T (5219)** for tungsten or **250D (5207)** for daylight. Specify **Print Emulation (Kodak 2383)**.
-2. **SKIN TONE PROTECTION:** Ensure all grading (Split-toning, LUTs) preserves the **Melanin-accurate skin tones** of the West Bengal subject. No "orange skin". Use **Sub-surface Scattering (SSS)** anchors.
-3. **BLACK POINT & GRAIN:** Define a **Lush Black Point** (not crushed) and **Temporal Grain Profiles** (35mm Coarse for low-light, 16mm for memory/introspection).
-4. **BLOOM & HALATION:** Specify technical **Red-Channel Halation** on high-contrast edges and **Anamorphic Blue-streak Flare** where motived.
-5. **MASTERING TARGET:** Anchor for **HDR (Rec.2100 PQ)** with specific peak nit brightness for specular highlights (catchlights in eyes, wet pavement).
-6. **ABSOLUTE FIRST LINE:** A single-phrase "Stack Anchor": [Film Stock] + [Skin Tone Protection Hook] + [Mastering Target].
+**Instructions (Hollywood Standard v1):**
+1. **ACES PIPELINE:** Specify **IDT (Input Display Transform)** and **ODT (Rec.709/2020)**. Define **Gamut Mapping** for emissive sources.
+2. **SKIN TONE & LIGHT WRAP:** Preserve **Melanin-accurate tones**. Apply **Optical Light Wrap** for background integration.
+3. **GRAIN & BLACKS:** Use **Monochromatic Temporal Grain** and define a **Lush Black Point**. 
+4. **Specular Fidelity:** Target **1000 nits Specular Peak** without clipping.
+5. **NEGATIVE CONSTRAINTS:** NO digital noise, NO oversaturated "AI teal/orange", NO crushed blacks.
+6. **ABSOLUTE FIRST LINE:** A single-phrase "Stack Anchor": [ACES Pipeline] + [Light Wrap Detail] + [Skin Tone Protection].
 """
 
     base_instruction = f"{persona}\n\n{veo_3_instruction}"
