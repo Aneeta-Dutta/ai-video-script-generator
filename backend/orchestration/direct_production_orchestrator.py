@@ -211,16 +211,24 @@ class DirectProductionOrchestrator:
                     # Include previous scene context for continuity
                     prev_scene_summary = f"\nPREV SCENE: {beats[i-1]}" if i > 0 else ""
                     char_state_context = (
-                        f"\nCHARACTER STATES: {character_states}"
+                        f"\nCURRENT CHARACTER PHYSICAL STATES: {character_states}. Ensure visual consistency with these attributes."
                         if character_states
                         else ""
                     )
+
+                    # Dynamic intensity based on beat type
+                    intensity_instruction = ""
+                    if beat_type == "CLIMAX":
+                        intensity_instruction = "\nCLIMAX OVERRIDE: Increase performance_intensity to 0.9-1.0. High stakes, intense delivery."
+                    elif beat_type == "INTRO":
+                        intensity_instruction = "\nINTRO OVERRIDE: Keep performance_intensity at 0.4-0.6. Subtle, atmospheric, world-building."
 
                     prompt = f"""MOVIE CREATIVE BRIEF:
 {creative_brief}
 
 CINEMATIC DIRECTIVE FOR THIS BEAT:
 {directive}
+{intensity_instruction}
 
 CURRENT BEAT ({beat_type} - Scene {scene_num}/{len(beats)}):
 {beat}
@@ -256,17 +264,19 @@ Deliver your output for this 8-SECOND BYTE. Be extremely brief."""
                                 for l in agent_output.split("\n")
                                 if "CHARACTER STATE UPDATE:" in l
                             ][0]
-                            state = state_line.split("CHARACTER STATE UPDATE:")[
+                            new_state = state_line.split("CHARACTER STATE UPDATE:")[
                                 1
                             ].strip()
-                            # Update character_states (very simple parsing)
-                            if ":" in state:
-                                char, char_state = state.split(":", 1)
-                                character_states[char.strip()] = char_state.strip()
+                            # Update character_states dictionary
+                            if ":" in new_state:
+                                char_name, char_val = new_state.split(":", 1)
+                                character_states[char_name.strip()] = char_val.strip()
                             else:
-                                character_states["Primary"] = state
-                        except:
-                            pass
+                                character_states["primary"] = new_state
+
+                            self.logger.info(f"🎭 Character State Updated: {new_state}")
+                        except Exception as e:
+                            self.logger.warning(f"Failed to parse character state: {e}")
 
                 # Synthesize scene data
                 scene_json = self._synthesize_scene_json(
