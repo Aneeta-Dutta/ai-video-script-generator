@@ -40,6 +40,8 @@ env/
 gcp-credentials.json
 *.json
 !requirements.txt
+!backend/core/schemas/*.json
+!outputs/sessions/session_delivery*.json
 
 # Logs
 logs/
@@ -47,7 +49,11 @@ logs/
 
 # Output files
 outputs/
-research_reports/
+!outputs/sessions/
+!outputs/research_reports/
+!outputs/production_scripts/
+!outputs/MANIFEST.json
+!outputs/README.md
 generated_images/
 
 # Archive

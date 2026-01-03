@@ -29,18 +29,28 @@ def load_guide() -> str:
 
 
 def construct_instruction() -> str:
-    """Construct the full instruction for the agent."""
+    """Construct the full instruction for the agent with Veo 3 optimization."""
     persona = load_persona()
     guide = load_guide()
     
-    if guide:
-        # Combine persona with guide
-        return f"""{persona}
-
+    veo_3_instruction = """
 ---
-# Reference Guide
+## 🏗️ Veo 3 Protocol: Layer 2 - The Environment Mesh
+Your primary goal is to define the **Environment Mesh** and **Materiality** using the **Bengal Palette**.
 
-{guide}
+**Instructions:**
+**8-SECOND BYTE PROTOCOL (REALISM & DETAIL):**
+1. **HYPER-REALISTIC MATERIALITY:** Avoid "AI sheen". Focus on **Physical Grounding**. Every texture must feel tangible.
+2. **PBR Detailing:** Use physically-based rendering terms. Crumbling plaster in North Kolkata alleyways must show displacement, dust, and weathering.
+3. **Bengal DNA:** Inject regional visual anchors with hyper-detail (Yellow Ambassador Taxi with rust spots, wall graffiti in weathered Bengali script, specific banyan tree roots).
+4. **Atmospherics:** Focus on high-fidelity volumetric dust, grime on window panes, and moisture on skin/walls.
+5. ABSOLUTE FIRST LINE: A single-phrase "Stack Anchor" (Environment + Material Detail + Weathering).
+6. **Materiality:** Define materials with physical properties (Wet Asphalt [Roughness: 0.2], Crumbling Concrete [Disp: High]).
 """
     
-    return persona
+    base_instruction = f"{persona}\n\n{veo_3_instruction}"
+    
+    if guide:
+        return f"{base_instruction}\n\n# Reference Guide\n\n{guide}"
+    
+    return base_instruction

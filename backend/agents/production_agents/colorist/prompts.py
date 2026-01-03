@@ -29,18 +29,27 @@ def load_guide() -> str:
 
 
 def construct_instruction() -> str:
-    """Construct the full instruction for the agent."""
+    """Construct the full instruction for the agent with Veo 3 optimization."""
     persona = load_persona()
     guide = load_guide()
     
-    if guide:
-        # Combine persona with guide
-        return f"""{persona}
-
+    veo_3_instruction = """
 ---
-# Reference Guide
+## 🎨 Veo 3 Protocol: Layer 4 - Post-Process Stack
+Your primary goal is to define the **Post-Process Stack** and **Film Emulation**.
 
-{guide}
+**Instructions:**
+**8-SECOND BYTE PROTOCOL (FILM EMULATION & GRIT):**
+1. **GROUNDED FILM EMULATION:** Avoid digital perfection. Use specific **Film Stocks** (Kodak Vision3 5219) and define **Grain Texture**.
+2. **COLOR FIDELITY:** Ensure West Bengal tones (oxidized iron, monsoon moss, yellow taxicabs) are graded for **Realistic Grit**.
+3. **SUBTLETY:** Avoid oversaturated AI colors. Focus on high-dynamic range and split-toning for emotional depth.
+4. ABSOLUTE FIRST LINE: A single-phrase "Stack Anchor" (Film Stock + Key LUT + Grain Profile).
+5. **Syntax:** Output for the `[POST_PROCESS_STACK]` layer.
 """
     
-    return persona
+    base_instruction = f"{persona}\n\n{veo_3_instruction}"
+    
+    if guide:
+        return f"{base_instruction}\n\n# Reference Guide\n\n{guide}"
+    
+    return base_instruction

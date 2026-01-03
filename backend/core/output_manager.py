@@ -55,16 +55,19 @@ class OutputManager:
             Path or URL to saved file
         """
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        safe_topic = self._sanitize_filename(topic)
-        filename = f"{safe_topic}_{timestamp}_research.md"
+        slug = self._get_slug(topic)
+        filename = f"research_{slug}_{timestamp}.md"
         
         # Add metadata header to content
         full_content = self._add_metadata_header(content, metadata, "Research Report")
         
         if self.use_cloud:
-            return self._save_to_cloud(f"research_reports/{filename}", full_content)
+            path = self._save_to_cloud(f"research_reports/{filename}", full_content)
         else:
-            return self._save_to_local(self.settings.paths.research_reports_dir, filename, full_content)
+            path = self._save_to_local(self.settings.paths.research_reports_dir, filename, full_content)
+            
+        self._update_manifest("research", topic, path, metadata)
+        return path
     
     def save_production_script(self, topic: str, content: str, metadata: Optional[Dict[str, Any]] = None) -> str:
         """
@@ -79,16 +82,19 @@ class OutputManager:
             Path or URL to saved file
         """
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        safe_topic = self._sanitize_filename(topic)
-        filename = f"{safe_topic}_{timestamp}_script.md"
+        slug = self._get_slug(topic)
+        filename = f"prod_{slug}_{timestamp}.md"
         
         # Add metadata header
         full_content = self._add_metadata_header(content, metadata, "Production Script")
         
         if self.use_cloud:
-            return self._save_to_cloud(f"production_scripts/{filename}", full_content)
+            path = self._save_to_cloud(f"production_scripts/{filename}", full_content)
         else:
-            return self._save_to_local(self.settings.paths.production_scripts_dir, filename, full_content)
+            path = self._save_to_local(self.settings.paths.production_scripts_dir, filename, full_content)
+            
+        self._update_manifest("production", topic, path, metadata)
+        return path
     
     def save_session_data(self, session_id: str, data: Dict[str, Any]) -> str:
         """
@@ -102,14 +108,19 @@ class OutputManager:
             Path or URL to saved file
         """
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"session_{session_id}_{timestamp}.json"
+        topic = data.get("project_metadata", {}).get("topic", "unknown")
+        slug = self._get_slug(topic)
+        filename = f"session_{slug}_{timestamp}.json"
         
         content = json.dumps(data, indent=2, ensure_ascii=False)
         
         if self.use_cloud:
-            return self._save_to_cloud(f"sessions/{filename}", content)
+            path = self._save_to_cloud(f"sessions/{filename}", content)
         else:
-            return self._save_to_local(self.settings.paths.sessions_dir, filename, content)
+            path = self._save_to_local(self.settings.paths.sessions_dir, filename, content)
+            
+        self._update_manifest("session", topic, path, data.get("project_metadata", {}))
+        return path
     
     def _sanitize_filename(self, name: str) -> str:
         """Sanitize filename to remove invalid characters."""
@@ -143,6 +154,54 @@ class OutputManager:
         header += "---\n\n"
         
         return header + content
+
+    def _get_slug(self, topic: str) -> str:
+        """Create a URL-safe slug from a topic."""
+        import re
+        topic = topic.lower()
+        # Remove special markdown or long research titles
+        if topic.startswith("# research report:"):
+            topic = topic.replace("# research report:", "").strip()
+        topic = re.sub(r'[^a-z0-9\s-]', '', topic)
+        topic = re.sub(r'\s+', '_', topic).strip('_')
+        return topic[:40]
+
+    def _update_manifest(self, entry_type: str, topic: str, path: str, metadata: Dict[str, Any]) -> None:
+        """Update the output manifest tracking file."""
+        manifest_path = self.settings.paths.outputs_dir / "MANIFEST.json"
+        readme_path = self.settings.paths.outputs_dir / "README.md"
+        
+        # Update JSON Manifest
+        manifest = []
+        if manifest_path.exists():
+            try:
+                manifest = json.loads(manifest_path.read_text())
+            except:
+                manifest = []
+                
+        manifest.append({
+            "type": entry_type,
+            "topic": topic,
+            "path": path,
+            "timestamp": datetime.now().isoformat(),
+            "metadata": metadata
+        })
+        
+        manifest_path.write_text(json.dumps(manifest, indent=2))
+        
+        # Update Human-Readable README
+        readme_content = "# 🎥 AI Video Production: Output Hub\n\n"
+        readme_content += "Track all generated research, scripts, and production sessions here.\n\n"
+        readme_content += "## 🚀 Recent Deliveries\n\n"
+        readme_content += "| Timestamp | Type | Topic | File |\n"
+        readme_content += "|-----------|------|-------|------|\n"
+        
+        for entry in reversed(manifest[-20:]): # Last 20
+            ts = entry["timestamp"][:16].replace("T", " ")
+            filename = Path(entry["path"]).name
+            readme_content += f"| {ts} | {entry['type'].upper()} | {entry['topic'][:50]} | [{filename}]({entry['path']}) |\n"
+            
+        readme_path.write_text(readme_content)
     
     def _save_to_local(self, directory: Path, filename: str, content: str) -> str:
         """Save to local filesystem."""

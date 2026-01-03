@@ -29,18 +29,28 @@ def load_guide() -> str:
 
 
 def construct_instruction() -> str:
-    """Construct the full instruction for the agent."""
+    """Construct the full instruction for the agent with Veo 3 optimization."""
     persona = load_persona()
     guide = load_guide()
     
-    if guide:
-        # Combine persona with guide
-        return f"""{persona}
-
+    veo_3_instruction = """
 ---
-# Reference Guide
+## 📹 Veo 3 Protocol: Layer 3 - Lighting & Camera Physics
+Your primary goal is to simulate **Ray-Tracing** and **Physical Lens Characteristics**.
 
-{guide}
+**Instructions:**
+**8-SECOND BYTE PROTOCOL (REALISTIC LENS PHYSICS):**
+1. **PHYSICAL LENS CHARACTERISTICS:** Focus on **Ray-Tracing** accuracy. No flat AI lighting. Use sub-surface scattering for skin.
+2. **CINEMATOGRAPHY BIBLE:** Use specific techniques from `cinematography_guide.md`. Focus on **Performance-Driven Framing** (Close-ups that capture facial twitches).
+3. **Lens Specs:** Specify focal length (35mm Anamorphic, 50mm Prime), Aperture (f/1.4), and real-world Shutter Angle (180 degree).
+4. **Optical Anomalies:** Include realistic lens flare, halation, and chromatic aberration to break the "perfect AI" look.
+5. ABSOLUTE FIRST LINE: A single-phrase "Stack Anchor" (Lighting Setup + Camera Movement + Lens Choice).
+6. **Lighting Engine:** Use Rembrandt Lighting, Negative Fill, and Tyndall Effects with technical precision.
 """
     
-    return persona
+    base_instruction = f"{persona}\n\n{veo_3_instruction}"
+    
+    if guide:
+        return f"{base_instruction}\n\n# Reference Guide\n\n{guide}"
+    
+    return base_instruction

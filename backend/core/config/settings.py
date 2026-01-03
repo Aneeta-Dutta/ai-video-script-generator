@@ -93,6 +93,7 @@ class PathConfig:
     research_reports_dir: Path
     production_scripts_dir: Path
     sessions_dir: Path
+    persona_db_dir: Path
     logs_dir: Path
     
     @classmethod
@@ -107,6 +108,7 @@ class PathConfig:
             research_reports_dir=outputs / "research_reports",
             production_scripts_dir=outputs / "production_scripts",
             sessions_dir=outputs / "sessions",
+            persona_db_dir=root / "backend/core/persona_db",
             logs_dir=root / "logs"
         )
 
@@ -134,6 +136,7 @@ class Settings:
         paths.research_reports_dir.mkdir(exist_ok=True)
         paths.production_scripts_dir.mkdir(exist_ok=True)
         paths.sessions_dir.mkdir(exist_ok=True)
+        paths.persona_db_dir.mkdir(exist_ok=True, parents=True)
         paths.logs_dir.mkdir(exist_ok=True)
         
         # Model configuration

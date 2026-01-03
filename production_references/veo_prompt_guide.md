@@ -10,7 +10,7 @@ Veo 3 interprets prompts as a hierarchy of tensors. We do not write sentences; w
 
 **The Syntax Formula:**
 ```text
-[SUBJECT_ANCHOR] + [MICRO_DETAILS] :: [ENVIRONMENT_MESH] + [ATMOSPHERICS] :: [LIGHTING_COMPLEXITY] :: [CAMERA_PHYSICS] + [LENS_IMPERFECTIONS] :: [POST_PROCESS_STACK] --[FLAGS]
+[SUBJECT_ANCHOR] + [MICRO_DETAILS] :: [CHARACTER_VOICE_DNA] :: [ENVIRONMENT_MESH] + [ATMOSPHERICS] :: [LIGHTING_COMPLEXITY] :: [CAMERA_PHYSICS] + [LENS_IMPERFECTIONS] :: [POST_PROCESS_STACK] --[FLAGS]
 ```
 
 ### The Nolan Protocol (Hyper-Density)
@@ -37,6 +37,15 @@ To achieve "Nolan-Level" realism, every layer must contain **Micro-Texture** and
 *   **Expression Maps:**
     *   `[Micro-Expression: Furrowed Brow]`
     *   `[Gaze: 1000-yard stare]`
+ 
+---
+ 
+## 2.5 Layer 1.5: Character Voice DNA
+**Goal:** Define consistent audio biometrics for recurring characters.
+
+*   **Protagonist (Arindam):** `[CHARACTER_VOICE_DNA: Deep Baritone, Weathered Bengali Accent, Gravelly Texture, Resonant Chest Frequency]`
+*   **Antagonist (Official):** `[CHARACTER_VOICE_DNA: Nasal Tenor, Slippery Urban Bengali, Sharp Sibilant Consonants]`
+*   **Background (Villagers):** `[CHARACTER_VOICE_DNA: High-Pitch Distress, Rural Sunderban Dialect, Raspy from Air Pollution]`
 
 ---
 

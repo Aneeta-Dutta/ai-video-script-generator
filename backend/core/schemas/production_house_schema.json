@@ -1,0 +1,90 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ProductionHouseOutput",
+    "type": "object",
+    "properties": {
+        "project_metadata": {
+            "type": "object",
+            "properties": {
+                "topic": {
+                    "type": "string"
+                },
+                "session_id": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "total_scenes": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "topic",
+                "session_id",
+                "timestamp"
+            ]
+        },
+        "research_summary_crisp": {
+            "type": "string",
+            "description": "A crisp, 5-10 sentence summary of the research findings."
+        },
+        "scenes": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "scene_number": {
+                        "type": "integer"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "scene_description_precise": {
+                        "type": "string",
+                        "description": "Brevity-optimized description for 8-second visual byte (max 8 sentences)."
+                    },
+                    "duration_seconds": {
+                        "type": "integer",
+                        "description": "Fixed duration of 8 seconds for Veo 3 generation.",
+                        "const": 8
+                    },
+                    "veo3_stack": {
+                        "type": "string",
+                        "description": "Full Veo 3 Stack syntax: [SUBJECT_ANCHOR] :: [ENVIRONMENT_MESH] :: [LIGHTING] :: [CAMERA] :: [POST] --flags"
+                    },
+                    "dialogue_bengali": {
+                        "type": "string",
+                        "description": "Final dialogue in Bengali script (Bangla)."
+                    },
+                    "dialogue_english_ref": {
+                        "type": "string",
+                        "description": "English reference for the dialogue."
+                    },
+                    "narration_bengali": {
+                        "type": "string",
+                        "description": "Final narration in Bengali script (Bangla)."
+                    },
+                    "narration_english_ref": {
+                        "type": "string",
+                        "description": "English reference for the narration."
+                    }
+                },
+                "required": [
+                    "scene_number",
+                    "title",
+                    "scene_description_precise",
+                    "veo3_stack",
+                    "dialogue_bengali",
+                    "narration_bengali"
+                ]
+            }
+        }
+    },
+    "required": [
+        "project_metadata",
+        "research_summary_crisp",
+        "scenes"
+    ]
+}

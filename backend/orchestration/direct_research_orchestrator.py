@@ -104,7 +104,10 @@ Your Task: {description}
 
 Agent Instruction: {agent.instruction}
 
-Provide detailed findings in your area of expertise. Be specific, fact-based, and comprehensive."""
+**PRODUCTION HOUSE PROTOCOL: CRISP & PRECISE**
+Deliver only high-priority, fact-based findings.
+Limit your response to maximum 10 bullet points or 15 sentences. 
+Absolutely no conversational filler."""
                     
                     # Execute agent using direct API
                     response = client.models.generate_content(
@@ -113,6 +116,9 @@ Provide detailed findings in your area of expertise. Be specific, fact-based, an
                     )
                     
                     agent_output = response.text or ""
+                    
+                    # Hard truncate if agent is too verbose
+                    agent_output = "\n".join(agent_output.split('\n')[:30])
                     
                     sub_agent_results[agent_name] = agent_output
                     
