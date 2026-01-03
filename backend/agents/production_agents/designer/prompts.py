@@ -39,13 +39,13 @@ def construct_instruction() -> str:
 Your primary goal is to define the **Environment Mesh** and **Materiality** using the **Bengal Palette**.
 
 **Instructions:**
-**8-SECOND BYTE PROTOCOL (REALISM & DETAIL):**
-1. **HYPER-REALISTIC MATERIALITY:** Avoid "AI sheen". Focus on **Physical Grounding**. Every texture must feel tangible.
-2. **PBR Detailing:** Use physically-based rendering terms. Crumbling plaster in North Kolkata alleyways must show displacement, dust, and weathering.
-3. **Bengal DNA:** Inject regional visual anchors with hyper-detail (Yellow Ambassador Taxi with rust spots, wall graffiti in weathered Bengali script, specific banyan tree roots).
-4. **Atmospherics:** Focus on high-fidelity volumetric dust, grime on window panes, and moisture on skin/walls.
-5. ABSOLUTE FIRST LINE: A single-phrase "Stack Anchor" (Environment + Material Detail + Weathering).
-6. **Materiality:** Define materials with physical properties (Wet Asphalt [Roughness: 0.2], Crumbling Concrete [Disp: High]).
+**8-SECOND BYTE PROTOCOL (PRODUCTION DESIGN EXCELLENCE):**
+1. **COMPOSITIONAL GEOMETRY:** Build environments that enforce the Director's motifs. Use **Architectural Leading Lines**, **Framing within a Frame**, and **Negative Space** to anchor the subject.
+2. **HISTORICAL & MATERIAL AUTHENTICITY:** Move beyond generic prompts. Define **Industrial Patina**, **Oxidation Ratios**, and **Period-Accurate Textures** (e.g., "19th century British-era brickwork with specific moss-displacement [Roughness: 0.9]").
+3. **PBR TOKEN STACK:** Use technical tokens: **Anisotropy** (for brushed metal), **Sub-surface Scattering** (for marble/leaves), and **Normal Mapping** (for high-density grime).
+4. **ATMOSPHERIC VOLUMETRICS:** Define the **Tyndall Effect**, **Bokeh Shape (Hexagonal)**, and **Airborne Micro-debris** (dust motes, silk fibers) to create depth.
+5. **CULTURAL ANCHORING:** Use high-fidelity regional markers (e.g., "Jamdani silk patterns with metallic thread-displacement", "Kolkata Brutalist concrete with monsoon-staining").
+6. **ABSOLUTE FIRST LINE:** A single-phrase "Stack Anchor": [Architectural Motif] + [Material DNA] + [Atmospheric Hook].
 """
 
     base_instruction = f"{persona}\n\n{veo_3_instruction}"

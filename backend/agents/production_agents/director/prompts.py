@@ -39,16 +39,15 @@ def construct_instruction() -> str:
 Your primary goal is to define the **Subject Anchor** and **Action Vector** using the **Nolan Protocol (Hyper-Density)**.
 
 **Instructions:**
-**8-SECOND BYTE PROTOCOL (REALISM & CRAFTSMANSHIP):**
-1. **NO-AI-MESS:** Avoid generic "AI looks". Focus on **Hyper-Realistic Craftsmanship**. Every frame must look like high-budget cinema.
-2. **KINETIC VISION:** Use `cinematography_guide.md`. Focus on **Realistic Performance** where actors deliver intense, grounded roles.
-3. **AUDIO-VISUAL FOCUS:** For spoken dialogue, describe the character's facial muscles, lip movement, and vocal strain.
-4. **CULTURAL AUTHENTICITY:** Ground everything in **West Bengal / Kolkata** aesthetics. Use standard Bengali cultural markers.
-5. **DETAIL DENSITY:** Describe pore-level skin detail, micro-fuzz on fabrics, dust motes in light, and natural skin micro-movements (sweat, twitch).
-6. ABSOLUTE FIRST LINE: A single-phrase "Stack Anchor" (Subject + Kinetic Movement + Detail Hook).
-7. SECOND LINE (Optional): "CHARACTER STATE UPDATE: [State]"
-8. **Physicality:** Describe the subject with micro-texture (scars, pores, fabric weave).
-9. **Performance Direction:** Instruct the actor on their specific emotional delivery (e.g., "Arindam delivers with a quiet, suppressed rage").
+**8-SECOND BYTE PROTOCOL (FILM SCHOOL STANDARDS):**
+1. **COMPOSITIONAL GEOMETRY:** Use motifs for subtext. Define **Negative Space** for isolation, **Triangular Framing** for tension, and **Leading Lines** for focus. Avoid centered "AI-defaults".
+2. **MOTIVED KINETICS:** Camera movement must have narrative purpose (e.g., "Slow push only when the realization hits", "Low-angle power framing as Arindam asserts dominance").
+3. **PEFORMANCE SUBTEXT:** Direct the actor's **vocal strain**, **gaze direction**, and **micro-gestural subtext** (e.g., "Arindam clenches his jaw before speaking, eyes darting to the shadow").
+4. **NO-AI-MESS (HYPER-DENSITY):** Every frame must pass the "Master Shot" test. Describe pore-level sweat, fabric micro-vibrations, and realistic eye-light (catchlights).
+5. **CULTURAL GROUNDING:** Authentically anchor the scene in **Kolkata Urban Brutalism** or **Rural Bengal Materiality**. Use specific regional material markers.
+6. **ABSOLUTE FIRST LINE:** A single-phrase "Stack Anchor": [Compositional Motif] + [Motived Movement] + [Performance Hook].
+7. **SECOND LINE:** "CHARACTER STATE UPDATE: [Name]: [Physical/Emotional State]"
+8. **PHYSICALITY & TEXTURE:** Describe the subject with industrial precision (e.g., "oily sheen on forehead", "frayed threads on the khadi collar").
 """
 
     base_instruction = f"{persona}\n\n{veo_3_instruction}"

@@ -38,11 +38,11 @@ def construct_instruction() -> str:
 ## ✍️ Production House Protocol: Crisp & Precise Bengali Script
 Your objective is to deliver the final screenplay elements in a format optimized for a high-end production house.
 
-**8-SECOND BYTE PROTOCOL (PERFORMANCE & AUTHENTICITY):**
-1. **AUTHENTIC ACCENT:** All dialogue MUST be in **West Bengal (Standard/Kolkata) Bengali**. Avoid rural dialects unless specified. Focus on sophisticated urban or standard tonal nuances.
-2. **LIP-SYNC PROTOCOL:** Define specific `lip_sync_intensity` (0.0 to 1.0) and `phonetic_emphasis` for the character's speech.
-3. **AUDIO SEPARATION:** Distinguish between `spoken_dialogue` and `background_soundscape` (music, atmospheric hum).
-4. **CRAFT:** Actors must deliver "performances", not just read lines. Include `performance_notes`.
+**8-SECOND BYTE PROTOCOL (HOLLYWOOD PERFORMANCE STANDARDS):**
+1. **SUBTEXT VS. TEXT:** Dialogue must carry an internal weight. Specify the **Unspoken Emotion** and **Gaze Direction** (e.g., "Arindam maintains eye contact but his pupils dilate as he lies").
+2. **REGIONAL TONAL NUANCE:** Use sophisticated **Kolkata Standard Bengali** with specific class-based or generational tonal markers.
+3. **LIP-SYNC & MICRO-GESTURE:** In `lip_sync_notes`, include micro-movements like "jaw clenching", "lip quivering", or "rapid blinking".
+4. **PERFORMANCE INTENSITY:** Use a dynamic range (0.1 for a whisper/silence to 1.0 for a scream/climax).
 
 **OUTPUT SCHEMA:**
 ```json
@@ -52,7 +52,9 @@ Your objective is to deliver the final screenplay elements in a format optimized
     "text_bengali": "...",
     "text_english_ref": "...",
     "lip_sync_notes": "...",
-    "accent_variant": "West Bengal Standard",
+    "gaze_direction": "...",
+    "subtext_internal": "...",
+    "accent_variant": "West Bengal Standard (Sophisticated/Urban)",
     "performance_intensity": 0.8
   },
   "background_soundscape": {

@@ -372,6 +372,8 @@ Deliver your output for this 8-SECOND BYTE. Be extremely brief."""
                     "text_english_ref": extract_crude("text_english_ref", writer_text)
                     or extract_crude("dialogue_english_ref", writer_text),
                     "lip_sync_notes": extract_crude("lip_sync_notes", writer_text),
+                    "gaze_direction": extract_crude("gaze_direction", writer_text),
+                    "subtext_internal": extract_crude("subtext_internal", writer_text),
                     "accent_variant": "West Bengal Standard",
                     "performance_intensity": 0.8,
                 },

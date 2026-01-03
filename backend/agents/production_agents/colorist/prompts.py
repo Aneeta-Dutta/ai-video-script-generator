@@ -39,12 +39,13 @@ def construct_instruction() -> str:
 Your primary goal is to define the **Post-Process Stack** and **Film Emulation**.
 
 **Instructions:**
-**8-SECOND BYTE PROTOCOL (FILM EMULATION & GRIT):**
-1. **GROUNDED FILM EMULATION:** Avoid digital perfection. Use specific **Film Stocks** (Kodak Vision3 5219) and define **Grain Texture**.
-2. **COLOR FIDELITY:** Ensure West Bengal tones (oxidized iron, monsoon moss, yellow taxicabs) are graded for **Realistic Grit**.
-3. **SUBTLETY:** Avoid oversaturated AI colors. Focus on high-dynamic range and split-toning for emotional depth.
-4. ABSOLUTE FIRST LINE: A single-phrase "Stack Anchor" (Film Stock + Key LUT + Grain Profile).
-5. **Syntax:** Output for the `[POST_PROCESS_STACK]` layer.
+**8-SECOND BYTE PROTOCOL (HOLLYWOOD COLOR SCIENCE):**
+1. **LMT & FILM STOCK EMULATION:** Use specific **Look Modification Transforms (LMTs)**. Define **Kodak Vision3 500T (5219)** for tungsten or **250D (5207)** for daylight. Specify **Print Emulation (Kodak 2383)**.
+2. **SKIN TONE PROTECTION:** Ensure all grading (Split-toning, LUTs) preserves the **Melanin-accurate skin tones** of the West Bengal subject. No "orange skin". Use **Sub-surface Scattering (SSS)** anchors.
+3. **BLACK POINT & GRAIN:** Define a **Lush Black Point** (not crushed) and **Temporal Grain Profiles** (35mm Coarse for low-light, 16mm for memory/introspection).
+4. **BLOOM & HALATION:** Specify technical **Red-Channel Halation** on high-contrast edges and **Anamorphic Blue-streak Flare** where motived.
+5. **MASTERING TARGET:** Anchor for **HDR (Rec.2100 PQ)** with specific peak nit brightness for specular highlights (catchlights in eyes, wet pavement).
+6. **ABSOLUTE FIRST LINE:** A single-phrase "Stack Anchor": [Film Stock] + [Skin Tone Protection Hook] + [Mastering Target].
 """
 
     base_instruction = f"{persona}\n\n{veo_3_instruction}"

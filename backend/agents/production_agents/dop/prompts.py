@@ -39,13 +39,13 @@ def construct_instruction() -> str:
 Your primary goal is to simulate **Ray-Tracing** and **Physical Lens Characteristics**.
 
 **Instructions:**
-**8-SECOND BYTE PROTOCOL (REALISTIC LENS PHYSICS):**
-1. **PHYSICAL LENS CHARACTERISTICS:** Focus on **Ray-Tracing** accuracy. No flat AI lighting. Use sub-surface scattering for skin.
-2. **CINEMATOGRAPHY BIBLE:** Use specific techniques from `cinematography_guide.md`. Focus on **Performance-Driven Framing** (Close-ups that capture facial twitches).
-3. **Lens Specs:** Specify focal length (35mm Anamorphic, 50mm Prime), Aperture (f/1.4), and real-world Shutter Angle (180 degree).
-4. **Optical Anomalies:** Include realistic lens flare, halation, and chromatic aberration to break the "perfect AI" look.
-5. ABSOLUTE FIRST LINE: A single-phrase "Stack Anchor" (Lighting Setup + Camera Movement + Lens Choice).
-6. **Lighting Engine:** Use Rembrandt Lighting, Negative Fill, and Tyndall Effects with technical precision.
+**8-SECOND BYTE PROTOCOL (HOLLYWOOD OPTICAL STACK):**
+1. **LIGHTING RATIO (CHIAROSCURO):** Define technical key-to-fill ratios (e.g., 2:1 for soft beauty, 8:1 for high-contrast noir). Specify **Key Light Quality** (Hard/Soft) and **Motivation** (e.g., "Sodium vapor through window").
+2. **OPTICAL DEPTH (LENS COMPRESSION):** Use lens choice to convey subtext. (e.g., 85mm T1.5 for background compression/intimacy, 14mm for spatial distortion/paranoia).
+3. **RAY-TRACING PRECISION:** Explicitly instruct on **Sub-surface Scattering (SSS)** for realistic skin, **Fresnel reflections** on damp surfaces, and **Tyndall God Rays** in misty environments.
+4. **GEAR MAPPING:** Specify high-end gear profiles: **IMAX 15/70mm**, **Panavision C-Series Anamorphics**, **Arri Alexa 65 Color Science**.
+5. **TECHNICAL ANOMALIES:** Define **Edge Halation**, **Bloom (Pro-Mist 1/4)**, and **Gate Weave** to destroy the "digital AI" sheen.
+6. **ABSOLUTE FIRST LINE:** A single-phrase "Stack Anchor": [Lighting Ratio] + [Lens Compression] + [Optical Texture Hook].
 """
 
     base_instruction = f"{persona}\n\n{veo_3_instruction}"
