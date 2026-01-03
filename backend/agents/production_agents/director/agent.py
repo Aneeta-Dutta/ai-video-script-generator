@@ -11,15 +11,15 @@ from .prompts import construct_instruction
 def create_agent() -> LlmAgent:
     """Create and configure the Christopher Nolan (Director) agent."""
     settings = get_settings()
-    
+
     # Determine model to use
     model = MANIFEST.model_override or settings.model.get_production_model
-    
+
     return LlmAgent(
         name=MANIFEST.name,
         model=model,
         description=MANIFEST.description,
-        instruction=construct_instruction()
+        instruction=construct_instruction(),
     )
 
 

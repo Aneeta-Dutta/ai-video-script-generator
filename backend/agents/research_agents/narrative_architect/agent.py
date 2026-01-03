@@ -11,15 +11,15 @@ from .prompts import construct_instruction
 def create_agent() -> LlmAgent:
     """Create and configure the Narrative Architect (The Story Weaver) agent."""
     settings = get_settings()
-    
+
     # Determine model to use
     model = MANIFEST.model_override or settings.model.get_research_model
-    
+
     return LlmAgent(
         name=MANIFEST.name,
         model=model,
         description=MANIFEST.description,
-        instruction=construct_instruction()
+        instruction=construct_instruction(),
     )
 
 

@@ -11,7 +11,7 @@ from typing import List, Optional
 @dataclass
 class AgentManifest:
     """Agent metadata and capabilities."""
-    
+
     name: str
     display_name: str
     description: str
@@ -37,11 +37,17 @@ MANIFEST = AgentManifest(
         "Synthesize findings",
         "Prioritize topics",
         "Create final reports",
-        "Generate video concepts"
+        "Generate video concepts",
     ],
     persona_file="",
     guide_file=None,
     model_override=None,
     requires_sub_agents=True,
-    sub_agent_names=["data_miner", "grassroots_voice", "historian", "trend_scout", "narrative_architect"]
+    sub_agent_names=[
+        "data_miner",
+        "grassroots_voice",
+        "historian",
+        "trend_scout",
+        "narrative_architect",
+    ],
 )

@@ -11,7 +11,7 @@ from typing import List, Optional
 @dataclass
 class AgentManifest:
     """Agent metadata and capabilities."""
-    
+
     name: str
     display_name: str
     description: str
@@ -32,10 +32,15 @@ MANIFEST = AgentManifest(
     description="Master cinematographer for visual excellence",
     version="1.0.0",
     role="Cinematography",
-    capabilities=['Camera movement design', 'Lighting setup', 'Shot composition', 'Visual storytelling'],
+    capabilities=[
+        "Camera movement design",
+        "Lighting setup",
+        "Shot composition",
+        "Visual storytelling",
+    ],
     persona_file="personas/dop_persona.md",
     guide_file="cinematography_guide.md",
     model_override=None,
     requires_sub_agents=False,
-    sub_agent_names=[]
+    sub_agent_names=[],
 )

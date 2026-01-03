@@ -10,5 +10,5 @@ __all__ = [
     "get_logger",
     "create_app_logger",
     "retry_on_failure",
-    "timer"
+    "timer",
 ]

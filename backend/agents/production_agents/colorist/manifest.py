@@ -11,7 +11,7 @@ from typing import List, Optional
 @dataclass
 class AgentManifest:
     """Agent metadata and capabilities."""
-    
+
     name: str
     display_name: str
     description: str
@@ -32,10 +32,15 @@ MANIFEST = AgentManifest(
     description="Color grading and post-production specialist",
     version="1.0.0",
     role="Color Grading",
-    capabilities=['Color grading', 'Mood enhancement', 'Visual consistency', 'Atmospheric tones'],
+    capabilities=[
+        "Color grading",
+        "Mood enhancement",
+        "Visual consistency",
+        "Atmospheric tones",
+    ],
     persona_file="personas/colorist_persona.md",
     guide_file="post_production_guide.md",
     model_override=None,
     requires_sub_agents=False,
-    sub_agent_names=[]
+    sub_agent_names=[],
 )

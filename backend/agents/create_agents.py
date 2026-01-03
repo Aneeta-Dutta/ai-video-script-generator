@@ -20,7 +20,12 @@ When given a topic, you ask questions like:
 * "The trauma of the 'educated delivery boy'."
 
 Output your findings as a collection of short, powerful anecdotal narratives or sentiment summaries.""",
-        "capabilities": ["Capture emotional pulse", "Collect anecdotes", "Analyze social sentiment", "Document ground reality"]
+        "capabilities": [
+            "Capture emotional pulse",
+            "Collect anecdotes",
+            "Analyze social sentiment",
+            "Document ground reality",
+        ],
     },
     "historian": {
         "display_name": "Historian (The Contextualizer)",
@@ -37,7 +42,12 @@ When given a topic, you ask questions like:
 * "Comparison with other states' models."
 
 Output your findings as a historical timeline or root-cause analysis summary.""",
-        "capabilities": ["Provide historical context", "Root cause analysis", "Policy comparison", "Timeline creation"]
+        "capabilities": [
+            "Provide historical context",
+            "Root cause analysis",
+            "Policy comparison",
+            "Timeline creation",
+        ],
     },
     "trend_scout": {
         "display_name": "Trend Scout (The Virality Engineer)",
@@ -54,7 +64,12 @@ When given a topic, you ask questions like:
 * "The David vs. Goliath angle."
 
 Output your findings as potential viral hooks, trending hashtags, oremotion-trigger points.""",
-        "capabilities": ["Identify viral angles", "Create engaging hooks", "Analyze shareability", "Trend detection"]
+        "capabilities": [
+            "Identify viral angles",
+            "Create engaging hooks",
+            "Analyze shareability",
+            "Trend detection",
+        ],
     },
     "narrative_architect": {
         "display_name": "Narrative Architect (The Story Weaver)",
@@ -72,8 +87,13 @@ When given research, you:
 * Propose the protagonist (usually Arindam Roy) and antagonist framing
 
 Output your findings as structured video concept briefs with scene suggestions.""",
-        "capabilities": ["Synthesize research", "Create narrative arcs", "Suggest visual concepts", "Structure stories"]
-    }
+        "capabilities": [
+            "Synthesize research",
+            "Create narrative arcs",
+            "Suggest visual concepts",
+            "Structure stories",
+        ],
+    },
 }
 
 
@@ -81,7 +101,7 @@ def create_agent_module(agent_name: str, config: dict, base_path: Path):
     """Create a complete agent module."""
     agent_dir = base_path / agent_name
     agent_dir.mkdir(parents=True, exist_ok=True)
-    
+
     # Create manifest.py
     manifest_content = f'''"""
 {config['display_name']} Agent Manifest.
@@ -125,7 +145,7 @@ MANIFEST = AgentManifest(
     sub_agent_names=[]
 )
 '''
-    
+
     # Create prompts.py
     prompts_content = f'''"""
 {config['display_name']} Agent prompts and persona.
@@ -143,7 +163,7 @@ def construct_instruction() -> str:
     """Construct the full instruction for the agent."""
     return get_persona()
 '''
-    
+
     # Create agent.py
     agent_content = f'''"""
 {config['display_name']} Agent implementation.
@@ -173,7 +193,7 @@ def create_agent() -> LlmAgent:
 # Create singleton instance
 {agent_name}_agent = create_agent()
 '''
-    
+
     # Create __init__.py
     init_content = f'''"""
 {config['display_name']} Agent module.
@@ -186,20 +206,20 @@ from .agent import {agent_name}_agent
 
 __all__ = ["{agent_name}_agent", "MANIFEST"]
 '''
-    
+
     # Write files
     (agent_dir / "manifest.py").write_text(manifest_content)
     (agent_dir / "prompts.py").write_text(prompts_content)
     (agent_dir / "agent.py").write_text(agent_content)
     (agent_dir / "__init__.py").write_text(init_content)
-    
+
     print(f"✅ Created {agent_name} module")
 
 
 if __name__ == "__main__":
     base_path = Path(__file__).parent / "research_agents"
-   
+
     for agent_name, config in AGENTS.items():
         create_agent_module(agent_name, config, base_path)
-    
+
     print("\n🎉 All research agent modules created!")

@@ -5,7 +5,10 @@ from .dop import dop_agent, MANIFEST as DOP_MANIFEST
 from .designer import designer_agent, MANIFEST as DESIGNER_MANIFEST
 from .colorist import colorist_agent, MANIFEST as COLORIST_MANIFEST
 from .writer import writer_agent, MANIFEST as WRITER_MANIFEST
-from .executive_producer import executive_producer_agent, MANIFEST as EXECUTIVE_PRODUCER_MANIFEST
+from .executive_producer import (
+    executive_producer_agent,
+    MANIFEST as EXECUTIVE_PRODUCER_MANIFEST,
+)
 
 __all__ = [
     "director_agent",
@@ -19,5 +22,5 @@ __all__ = [
     "DESIGNER_MANIFEST",
     "COLORIST_MANIFEST",
     "WRITER_MANIFEST",
-    "EXECUTIVE_PRODUCER_MANIFEST"
+    "EXECUTIVE_PRODUCER_MANIFEST",
 ]

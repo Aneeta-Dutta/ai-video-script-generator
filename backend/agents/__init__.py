@@ -6,7 +6,7 @@ from .research_agents import (
     grassroots_voice_agent,
     historian_agent,
     trend_scout_agent,
-    narrative_architect_agent
+    narrative_architect_agent,
 )
 
 from .production_agents import (
@@ -15,7 +15,7 @@ from .production_agents import (
     dop_agent,
     designer_agent,
     colorist_agent,
-    writer_agent
+    writer_agent,
 )
 
 __all__ = [
@@ -32,5 +32,5 @@ __all__ = [
     "dop_agent",
     "designer_agent",
     "colorist_agent",
-    "writer_agent"
+    "writer_agent",
 ]

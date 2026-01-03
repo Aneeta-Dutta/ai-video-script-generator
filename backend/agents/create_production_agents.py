@@ -13,7 +13,12 @@ PRODUCTION_AGENTS = {
         "agent_var_name": "director_agent",
         "persona_file": "personas/director_persona.md",
         "guide_file": "director_guide.md",
-        "capabilities": ["Define emotional truth", "Epic scale direction", "Practical effects focus", "IMAX cinematography"],
+        "capabilities": [
+            "Define emotional truth",
+            "Epic scale direction",
+            "Practical effects focus",
+            "IMAX cinematography",
+        ],
     },
     "dop": {
         "display_name": "Hoyte van Hoytema (DoP)",
@@ -22,7 +27,12 @@ PRODUCTION_AGENTS = {
         "agent_var_name": "dop_agent",
         "persona_file": "personas/dop_persona.md",
         "guide_file": "cinematography_guide.md",
-        "capabilities": ["Camera movement design", "Lighting setup", "Shot composition", "Visual storytelling"],
+        "capabilities": [
+            "Camera movement design",
+            "Lighting setup",
+            "Shot composition",
+            "Visual storytelling",
+        ],
     },
     "designer": {
         "display_name": "Nathan Crowley (Designer)",
@@ -31,7 +41,12 @@ PRODUCTION_AGENTS = {
         "agent_var_name": "designer_agent",
         "persona_file": "personas/designer_persona.md",
         "guide_file": "production_design_guide.md",
-        "capabilities": ["Set design", "Environment creation", "Authentic atmosphere", "Visual metaphors"],
+        "capabilities": [
+            "Set design",
+            "Environment creation",
+            "Authentic atmosphere",
+            "Visual metaphors",
+        ],
     },
     "colorist": {
         "display_name": "Post-Production Colorist",
@@ -40,7 +55,12 @@ PRODUCTION_AGENTS = {
         "agent_var_name": "colorist_agent",
         "persona_file": "personas/colorist_persona.md",
         "guide_file": "post_production_guide.md",
-        "capabilities": ["Color grading", "Mood enhancement", "Visual consistency", "Atmospheric tones"],
+        "capabilities": [
+            "Color grading",
+            "Mood enhancement",
+            "Visual consistency",
+            "Atmospheric tones",
+        ],
     },
     "writer": {
         "display_name": "Kobiyal (Writer)",
@@ -49,7 +69,12 @@ PRODUCTION_AGENTS = {
         "agent_var_name": "writer_agent",
         "persona_file": "personas/writer_persona.md",
         "guide_file": "dialogue_guide.md",
-        "capabilities": ["Dialogue writing", "Cultural authenticity", "Emotional resonance", "Bengali idioms"],
+        "capabilities": [
+            "Dialogue writing",
+            "Cultural authenticity",
+            "Emotional resonance",
+            "Bengali idioms",
+        ],
     },
 }
 
@@ -58,7 +83,7 @@ def create_production_agent_module(agent_name: str, config: dict, base_path: Pat
     """Create a production agent module with persona file loading."""
     agent_dir = base_path / agent_name
     agent_dir.mkdir(parents=True, exist_ok=True)
-    
+
     # Create manifest.py
     manifest_content = f'''"""
 {config['display_name']} Agent Manifest.
@@ -102,7 +127,7 @@ MANIFEST = AgentManifest(
     sub_agent_names=[]
 )
 '''
-    
+
     # Create prompts.py with file loading
     prompts_content = f'''"""
 {config['display_name']} Agent prompts and persona loading.
@@ -151,7 +176,7 @@ def construct_instruction() -> str:
     
     return persona
 '''
-    
+
     # Create agent.py
     agent_content = f'''"""
 {config['display_name']} Agent implementation.
@@ -181,7 +206,7 @@ def create_agent() -> LlmAgent:
 # Create singleton instance
 {config['agent_var_name']} = create_agent()
 '''
-    
+
     # Create __init__.py
     init_content = f'''"""
 {config['display_name']} Agent module.
@@ -194,20 +219,20 @@ from .agent import {config['agent_var_name']}
 
 __all__ = ["{config['agent_var_name']}", "MANIFEST"]
 '''
-    
+
     # Write files
     (agent_dir / "manifest.py").write_text(manifest_content)
     (agent_dir / "prompts.py").write_text(prompts_content)
     (agent_dir / "agent.py").write_text(agent_content)
     (agent_dir / "__init__.py").write_text(init_content)
-    
+
     print(f"✅ Created {agent_name} module")
 
 
 if __name__ == "__main__":
     base_path = Path(__file__).parent / "production_agents"
-    
+
     for agent_name, config in PRODUCTION_AGENTS.items():
         create_production_agent_module(agent_name, config, base_path)
-    
+
     print("\n🎉 All production agent modules created!")

@@ -11,7 +11,7 @@ from typing import List, Optional
 @dataclass
 class AgentManifest:
     """Agent metadata and capabilities."""
-    
+
     name: str
     display_name: str
     description: str
@@ -37,11 +37,11 @@ MANIFEST = AgentManifest(
         "Synthesize creative outputs",
         "Generate final VEO prompts",
         "Quality control",
-        "JSON output formatting"
+        "JSON output formatting",
     ],
     persona_file="executive_producer_guide.md",
     guide_file="veo_prompt_guide.md",
     model_override=None,
     requires_sub_agents=True,
-    sub_agent_names=["director", "dop", "designer", "colorist", "writer"]
+    sub_agent_names=["director", "dop", "designer", "colorist", "writer"],
 )

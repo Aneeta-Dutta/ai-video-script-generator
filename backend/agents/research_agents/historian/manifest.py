@@ -11,7 +11,7 @@ from typing import List, Optional
 @dataclass
 class AgentManifest:
     """Agent metadata and capabilities."""
-    
+
     name: str
     display_name: str
     description: str
@@ -32,10 +32,15 @@ MANIFEST = AgentManifest(
     description="Root cause analysis and historical context specialist",
     version="1.0.0",
     role="Root Cause Analysis & Historical Context",
-    capabilities=['Provide historical context', 'Root cause analysis', 'Policy comparison', 'Timeline creation'],
+    capabilities=[
+        "Provide historical context",
+        "Root cause analysis",
+        "Policy comparison",
+        "Timeline creation",
+    ],
     persona_file="",  # Uses inline persona for now
     guide_file=None,
     model_override=None,
     requires_sub_agents=False,
-    sub_agent_names=[]
+    sub_agent_names=[],
 )

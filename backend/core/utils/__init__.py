@@ -8,7 +8,7 @@ from .helpers import (
     load_text_file,
     save_text_file,
     sanitize_filename,
-    truncate_text
+    truncate_text,
 )
 
 __all__ = [
@@ -19,5 +19,5 @@ __all__ = [
     "load_text_file",
     "save_text_file",
     "sanitize_filename",
-    "truncate_text"
+    "truncate_text",
 ]

@@ -7,7 +7,7 @@ from .settings import (
     PathConfig,
     get_settings,
     reload_settings,
-    PROJECT_ROOT
+    PROJECT_ROOT,
 )
 
 __all__ = [
@@ -17,5 +17,5 @@ __all__ = [
     "PathConfig",
     "get_settings",
     "reload_settings",
-    "PROJECT_ROOT"
+    "PROJECT_ROOT",
 ]
