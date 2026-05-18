@@ -98,12 +98,10 @@ class ProductionOrchestrator:
                 session_id=f"adk_session_{session_id}",
                 new_message=input_content,
             ):
-                # Collect text output
-                if hasattr(event, "text") and event.text:
-                    script_content += event.text
-                elif hasattr(event, "parts") and event.parts:
-                    for part in event.parts:
-                        if hasattr(part, "text") and part.text:
+                # Collect text output from event.content.parts (ADK Event shape)
+                if event.content and event.content.parts:
+                    for part in event.content.parts:
+                        if part.text:
                             script_content += part.text
 
             # Complete agent execution

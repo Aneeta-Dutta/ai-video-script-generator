@@ -59,8 +59,10 @@ async def run_pipeline(topic: str):
                 parts=[types.Part(text=f"Research topic: {topic}")]
             )
         ):
-            if hasattr(event, 'text') and event.text:
-                research_output += event.text
+            if event.content and event.content.parts:
+                for part in event.content.parts:
+                    if part.text:
+                        research_output += part.text
         
         logger.info(f"✅ Research complete: {len(research_output)} chars")
         
@@ -103,8 +105,10 @@ async def run_pipeline(topic: str):
                 parts=[types.Part(text=f"Create shooting script for: {research_output or topic}")]
             )
         ):
-            if hasattr(event, 'text') and event.text:
-                production_output += event.text
+            if event.content and event.content.parts:
+                for part in event.content.parts:
+                    if part.text:
+                        production_output += part.text
         
         logger.info(f"✅ Production complete: {len(production_output)} chars")
         
